@@ -1,0 +1,49 @@
+ANSWERS:
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+ANSWER 1: We notice that each usage of local variable as an operand uses a suffix that can be tracked to it's assignment. Some variables  have a suffix `(D)' in which The contents of definition           tokenized and processed as if they appeared during translation phase three in a ‘#define’ directive. In particular, the definition is truncated by embedded newline characters.
+
+ANSWER 2: Since it is not possible to determine which of the three branches will be taken at runtime, we don’t know which of a_1, a_2 or a_3 to use at the return statement. 
+          So, the SSA renamer creates a new version a_4 which is assigned the result of “merging” a_1, a_2 and a_3. Hence, PHI nodes mean “one of these operands. I don’t know which”. 
+          It is this line at which a and b merge :  # a_1 = PHI <a_7(3), a_5(4)>
+                                                    # b_2 = PHI <b_8(3), b_6(4)>
+
+ANSWER 3:For example, given the following code:
+
+          1	L0:
+          2	x_1 = PHI (0, x_5)
+          3	if (x_1 < 10)
+          4	  if (x_1 > 7)
+          5	    y_2 = 0
+          6	  else
+          7	    y_3 = x_1 + x_7
+          8	  endif
+          9	  x_5 = x_1 + 1
+          10   goto L0;
+          11	endif
+
+
+Suppose that we insert new names x_10 and x_11 (lines 4 and 8).
+
+          1	L0:
+          2	x_1 = PHI (0, x_5)
+          3	if (x_1 < 10)
+          4	  x_10 = ...
+          5	  if (x_1 > 7)
+          6	    y_2 = 0
+          7	  else
+          8	    x_11 = ...
+          9	    y_3 = x_1 + x_7
+          10	  endif
+          11	  x_5 = x_1 + 1
+          12	  goto L0;
+          13	endif
+
+
+We want to replace all the uses of x_1 with the new definitions of x_10 and x_11. Note that the only uses that should be replaced are those at lines 5, 9 and 11. Also, the use of x_7 at line 9 should not be replaced (this is why we cannot just mark symbol x for renaming).
+
+Additionally, we may need to insert a PHI node at line 11 because that is a merge point for x_10 and x_11. So the use of x_1 at line 11 will be replaced with the new PHI node. The insertion of PHI nodes is optional. They are not strictly necessary to preserve the SSA form, and depending on what the caller inserted, they may not even be useful for the optimizers.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+

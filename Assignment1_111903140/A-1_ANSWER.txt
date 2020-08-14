@@ -1,0 +1,21 @@
+ANSWERS:
+______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+ANSWER 1: The variables are defined over multiple lines.Even if in the program they are defined on one line; gimple will show them on different lines. int a,b,c diaplayed as 
+          int a;
+          int b;
+          int c;
+
+
+ANSWER 2:In the expression c=a*b+25 
+         Now a*b is not assigned any variable ,the compiler then introduces a temporary variable _1 to store it.And then this value is replaced in the orignal expression like this:
+         c=_1+25:SO smaller parts of expression are assigned a temporary variable.
+
+
+ANSWER 3:r=34.5 this is value of r it is represented in the exponential form like 3.45e+1.When a float/double value is assigned to an int a new variuable is created_var that 
+         stores the int value and then it is assigned to the required variable.
+
+ANSWER 4:The global variable is not declared before the main function in gimple it is automatically declared when it is given a particular value(that is when initialized).
+         Z is given a temporary value because in the expression Z=Z+1 its value is being modified, so just to store orignal value.
+______________________________________________________________________________________________________________________________________________________________________________________________________________

@@ -1,0 +1,23 @@
+ANSWERS:
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+ANSWER 1: Before the while loop initialization takes place, then there is a text expression which tells compiler how many times the loop is to be executed.After this there is a body of the loop.
+          These three are the basic building blocks of the while loop.A new loop is defined for each execution of the loop whereas this does not happen in the if else part of the code.
+Loop 1
+header 4, latch 3
+depth 1, outer 0
+nodes: 4 3
+2 succs { 4 }
+3 succs { 4 }
+4 succs { 3 5 }
+5 succs { 10 }
+6 succs { 8 }
+7 succs { 8 }
+8 succs { 7 9 }
+9 succs { 10 }
+10 succs { 6 11 }
+11 succs { 12 }
+12 succs { 1 }
+
+
+ANSWER 2:The basic blocks for the nested for-loop are initialisation of the values of integers i and j to 0 and their maximum value upto which the for loop would be executed and also their increment after each cycle of execution of the for loop.A while loop is a little easier to explain than a for loop because a while loop will simply run the same code over and over until the condition becomes false. The specisl thing about for loop compared to while loop is that it runs for a specific number of times.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________

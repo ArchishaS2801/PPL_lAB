@@ -1,0 +1,27 @@
+ANSWERS:
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+ANSWER 1:Conditional statements are those statements which make program counter to load a specific address if the said condition becomes true. Jump(JNZ,JZ,etc.) are some most used conditional statements. JNZ 2050 will make content of program counter 2050 if the zero flag is not set. JMP 2050 will not check any condition and will just jump to address 2050. Now you can understand the statements which check a condition to execute a task is called conditional statement and the other type is non conditional which does not checks.
+This is how if statements look like in gimple:
+
+if (a <= 9) goto <D.1799>; else goto <D.1800>;
+c = 17;<D.1799>:
+b = 5;
+c = 17;
+ goto <D.1801>;
+ <D.1800>:
+ b = 6;
+ c = 20;
+ if (a == 0) goto <D.1802>; else goto <D.1803>;
+<D.1802>:
+ c = 0;
+ <D.1803>:
+ <D.1801>:
+_1 = b * 10;
+ _2 = c + _1;
+ Z = _2;
+
+
+ANSWER 2:After repeating  the  above compilation,  and this time asking for  another  dump that  of  the pass  "cfg". We view  this  pass and this representation makes it easier to  read and understand.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________

@@ -1,0 +1,14 @@
+ANSWERS:
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+ANSWER 1:Array declarations and initialization are separated out into different lines with only one declaration or initialization on a line. This is done for better readability and understanding 
+         of the code and its implementation.
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+ANSWER 2:The step a[i] = b[i] gets split up into two steps with an intermediate temporary for better understanding and also to simplify the process and understand how it actually works.
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+ANSWER 3:CLOBBER statements are at the end. In computer or software engineering, clobbering a file or computer memory is overwriting its contents. Clobber descriptions in any way may not overlap with 
+         an input or output operand
+______________________________________________________________________________________________________________________________________________________________________________________________________________
